@@ -1,4 +1,7 @@
+#import the python file that creates/connects to database
 import db
+#import re since using regular expressions
+import re
 
 
 ''' Functions for commands'''
@@ -12,9 +15,10 @@ def tutor (tu_name, start, end):
 		return time_valid
 
 	elif name_valid != True:
-		return name_valid
+		return name_valid	
 
 	elif time_valid and name_valid:
+		
 		return db.add_tutor(tu_name, start, end)
 	
 	else: 
@@ -64,12 +68,16 @@ def student(stu_name):
 
 '''Helper functions'''
 
-#Verify correct formats
+#verify names contain only alphanumeric characters, dash, and underscore
+def alphanum(name, search=re.compile(r'[^a-z0-9-_]').search):
+		return not bool(search(name))
+
+#verify correct inputs
 def check_name(name):
-	#make sure name is between 3 and 20 characters long, inclusive
-	if len(name) >= 3 and len(name) <= 20: #and not already in db?
-		return True 
-	
+	#check that name between 3 and 20 characters long, inclusive
+	#verify name is alphanumeric + "-" and "_"
+	if len(name) >= 3 and len(name) <= 20 and alphanum(name):
+		return True
 	else:
 		return "ERROR: Name input is invalid."
 
@@ -109,7 +117,7 @@ def check_time(time1_str, time2_str, num):
 
 
 
-'''set up what to run when file is opened'''
+'''Set up what runs when file is opened'''
 
 try:
 	while True:
