@@ -1,9 +1,11 @@
 How to use this program: 
 
 1. Install Python 2 if it is not already on your computer.  Follow the instructions here: https://www.python.org/downloads/
-3. Create a folder.
-2. Download the db.py and main.py files. Move them to the folder you created in step 3. 
-3. Open main.py with Python.
+2. Create a folder.
+3. Download the db.py and main.py files. Move them to the folder you created in step 2. 
+4. Open the terminal.
+5. Navigate to the folder you created in step 2.
+6. Open main.py with Python.
 
 A prompt should appear. You're now ready to enter data into the database following the commands outlined in the coding challenge instructions. 
 
